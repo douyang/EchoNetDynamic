@@ -84,11 +84,11 @@
       <h3>Echocardiography, or cardiac ultrasound, is the most widely used and readily available imaging technique to assess cardiac function and structure. Combining rapid image acquisition, high temporal resolution, and without the risks of ionizing radiation, echocardiography serves as the backbone of cardiovascular imaging and is one of the most frequently used imaging studies in the United States. For diseases ranging from cardiomyopathies to valvular heart diseases, echocardiography is both necessary and sufﬁcient to diagnose many cardiovascular diseases. We introduce a new large video dataset of echocardiograms for computer vision research. The EchoNet-Dynamic database includes 10,036 labeled echocardiogram videos and human expert tracing to provide images to study cardiac motion and chamber volumes. </h3>
       <br> 
       <br>
-    <video width="320" height="240" controls autoplay>
+    <video width="320" height="320" controls autoplay loop >
       <source src="media/Example1.mp4" type=video/mp4>
     </video>
       
-    <video width="320" height="240" controls autoplay>
+    <video width="320" height="320" controls autoplay loop >
       <source src="media/Example2.mp4" type=video/mp4>
     </video>
       
@@ -101,7 +101,7 @@
       <h2 id="dataset">Dataset</h2>
       <object data="Schematic.jpg" width="1280" height="480"> <param name="src" value="Schematic.jpg" /> </object>
         <li>
-          <b>Echocardiogram Videos</b>:
+          <h3><b>Echocardiogram Videos</b>:
 A standard full resting echocardiogram study consists of a series of 50-100 videos and still images visualizing the heart from different angles, locations, and image acquisition techniques. The dataset contains 10,036 echocardiography videos from individuals who underwent echocardiography between 2006 and 2018 as part of routine clinical care at Stanford University Hospital. Each  video was cropped and masked to remove text, ECG and respirometer information, and other information outside of the scanning sector. The resulting square images were either 600x600 or 768x768 pixels depending on the ultrasound machine and downsampled by cubic interpolation using OpenCV into standardized 112x112 pixel videos. 
         </li>
     
@@ -115,36 +115,37 @@ A standard full resting echocardiogram study consists of a series of 50-100 vide
           <b>Tracings</b>:  In our dataset, and in standard echocardiography practice, the left ventricle is traced at the endocardial border at two separate time points representing end-systole and end-diastole for each video. Each tracing is used to estimate ventricular volume by integration of ventricular area over the length of the major axis of the ventricle
           
           <img src="media/TracingsFileVariables.JPG">
-        </li>
+        </li></h3>
 
 
       <h2 id="leaderboard">Leaderboard</h2> 
-    
+    <h3>
       To be coming in the future. For now, we present the model baseline.  
-      <img src="media/ModelPerformance.JPG">
+      <img src="media/ModelPerformance.JPG"></h3>
       
       <h2 id="access">Accessing Dataset</h2>    
-          
+       <h3>   
           Please read the Stanford University School of Medicine EchoNet-Dynamic Research Use Agreement. Once you register to download the EchoNet-Dynamic dataset, you will receive a link to the download over email. Note that you may not share the link to download the dataset with others.
+          </h3>
           
-          
-          
-          Please read the Stanford University School of Medicine EchoNet-Dynamic Dataset Research Use Agreement. Once you register to download the MRNet dataset, you will receive a link to the download over email. Note that you may not share the link to download the dataset with others.</p><div class="well" id="agreement"><h3>Stanford University School of Medicine EchoNet-Dynamic Dataset Research Use Agreement</h3>
-<p>By registering for downloads from the MRNet Dataset, you are agreeing to this Research Use Agreement, as well as to the Terms of Use of the Stanford University School of Medicine website as posted and updated periodically at http://www.stanford.edu/site/terms/.</p>
+         
+          Please read the Stanford University School of Medicine EchoNet-Dynamic Dataset Research Use Agreement. Once you register to download the EchoNet-Dynamic dataset, you will receive a link to the download over email. Note that you may not share the link to download the dataset with others.</p><div class="well" id="agreement"><h2>Stanford University School of Medicine EchoNet-Dynamic Dataset Research Use Agreement</h2>
+ <h3>
+<p>By registering for downloads from the EchoNet-Dynamic Dataset, you are agreeing to this Research Use Agreement, as well as to the Terms of Use of the Stanford University School of Medicine website as posted and updated periodically at http://www.stanford.edu/site/terms/.</p>
 <p>1. Permission is granted to view and use the EchoNet-Dynamic Dataset without charge for personal, non-commercial research purposes only. Any commercial use, sale, or other monetization is prohibited.</p>
 <p>2. Other than the rights granted herein, the Stanford University School of Medicine (&ldquo;School of Medicine&rdquo;) retains all rights, title, and interest in the EchoNet-Dynamic Dataset.</p>
 <p>3. You may make a verbatim copy of the EchoNet-Dynamic Dataset for personal, non-commercial research use as permitted in this Research Use Agreement. If another user within your organization wishes to use the EchoNet-Dynamic Dataset, they must register as an individual user and comply with all the terms of this Research Use Agreement.</p>
-<p>4. YOU MAY NOT DISTRIBUTE, PUBLISH, OR REPRODUCE A COPY of any portion or all of the MRNet Dataset to others without specific prior written permission from the School of Medicine.</p>
-<p>5. YOU MAY NOT SHARE THE DOWNLOAD LINK to the MRNet dataset to others. If another user within your organization wishes to use the EchoNet-Dynamic Dataset, they must register as an individual user and comply with all the terms of this Research Use Agreement.</p>
+<p>4. YOU MAY NOT DISTRIBUTE, PUBLISH, OR REPRODUCE A COPY of any portion or all of the EchoNet-Dynamic Dataset to others without specific prior written permission from the School of Medicine.</p>
+<p>5. YOU MAY NOT SHARE THE DOWNLOAD LINK to the EchoNet-Dynamic dataset to others. If another user within your organization wishes to use the EchoNet-Dynamic Dataset, they must register as an individual user and comply with all the terms of this Research Use Agreement.</p>
 <p>6. You must not modify, reverse engineer, decompile, or create derivative works from the EchoNet-Dynamic Dataset. You must not remove or alter any copyright or other proprietary notices in the EchoNet-Dynamic Dataset.</p>
 <p>7. The EchoNet-Dynamic Dataset has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, Research Use Only. In no event shall data or images generated through the use of the EchoNet-Dynamic Dataset be used or relied upon in the diagnosis or provision of patient care.</p>
-<p>8. THE ECHONET-DYNAMIC DATASET IS PROVIDED "AS IS," AND STANFORD UNIVERSITY AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS MRNet DATASET.</p>
+<p>8. THE ECHONET-DYNAMIC DATASET IS PROVIDED "AS IS," AND STANFORD UNIVERSITY AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS ECHONET-DYNAMIC DATASET.</p>
 <p>9. You will not make any attempt to re-identify any of the individual data subjects. Re-identification of individuals is strictly prohibited. Any re-identification of any individual data subject shall be immediately reported to the School of Medicine.</p>
 <p>10. Any violation of this Research Use Agreement or other impermissible use shall be grounds for immediate termination of use of this EchoNet-Dynamic Dataset. In the event that the School of Medicine determines that the recipient has violated this Research Use Agreement or other impermissible use has been made, the School of Medicine may direct that the undersigned data recipient immediately return all copies of the EchoNet-Dynamic Dataset and retain no copies thereof even if you did not cause the violation or impermissible use.</p>
-<p>In consideration for your agreement to the terms and conditions contained here, Stanford grants you permission to view and use the MRNet Dataset for personal, non-commercial research. You may not otherwise copy, reproduce, retransmit, distribute, publish, commercially exploit or otherwise transfer any material.</p>
+<p>In consideration for your agreement to the terms and conditions contained here, Stanford grants you permission to view and use the EchoNet-Dynamic Dataset for personal, non-commercial research. You may not otherwise copy, reproduce, retransmit, distribute, publish, commercially exploit or otherwise transfer any material.</p>
 <h4>Limitation of Use</h4>
 <p>You may use EchoNet-Dynamic Dataset for legal purposes only.</p>
-<p>You agree to indemnify and hold Stanford harmless from any claims, losses or damages, including legal fees, arising out of or resulting from your use of the MRNet Dataset or your violation or role in violation of these Terms. You agree to fully cooperate in Stanford&rsquo;s defense against any such claims. These Terms shall be governed by and interpreted in accordance with the laws of California. </p></div><!-- Begin MailChimp Signup Form -->
-          
+<p>You agree to indemnify and hold Stanford harmless from any claims, losses or damages, including legal fees, arising out of or resulting from your use of the EchoNet-Dynamic Dataset or your violation or role in violation of these Terms. You agree to fully cooperate in Stanford&rsquo;s defense against any such claims. These Terms shall be governed by and interpreted in accordance with the laws of California. </p></div><!-- Begin MailChimp Signup Form -->
+</h3>
   </body>
 </html>
