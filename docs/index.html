@@ -84,8 +84,15 @@
       <h3>Echocardiography, or cardiac ultrasound, is the most widely used and readily available imaging technique to assess cardiac function and structure. Combining rapid image acquisition, high temporal resolution, and without the risks of ionizing radiation, echocardiography serves as the backbone of cardiovascular imaging and is one of the most frequently used imaging studies in the United States. For diseases ranging from cardiomyopathies to valvular heart diseases, echocardiography is both necessary and sufﬁcient to diagnose many cardiovascular diseases. We introduce a new large video dataset of echocardiograms for computer vision research. The EchoNet-Dynamic database includes 10,036 labeled echocardiogram videos and human expert tracing to provide images to study cardiac motion and chamber volumes. </h3>
       <br> 
       <br>
-      <object data="Example1.avi" width="360" height="250"> <param name="src" value="Example1.avi" /> </object>
-      <object data="Example2.avi" width="360" height="250"> <param name="src" value="Example2.avi" /> </object>
+    <video width="320" height="240" controls autoplay>
+      <source src="media/Example1.mp4" type=video/mp4>
+    </video>
+      
+    <video width="320" height="240" controls autoplay>
+      <source src="media/Example2.mp4" type=video/mp4>
+    </video>
+      
+      
       </div>
       <h2 id="motivation">Motivation</h2>
       <h3> Machine learning analysis of biomedical images has seen significant recent advances. In contrast, there has been much less work on medical videos, despite the fact that videos are routinely used in many clinical settings. A major bottleneck for this is the the lack of openly available and well annotated medical video data. Computer vision has benefited greatly from many open databases which allow for collaboration, comparison, and creation of medical task specific architectures. We present the EchoNet-Dynamic Dataset of 10,036 echocardiography videos, spanning the range of typical echocardiography lab imaging conditions, with corresponding labeled measurements including ejection fraction, left ventricular volume at end-systole and end-diastole, and human expert tracings of the left ventricle as an aid in studying automated approaches to evaluate cardiac function. We additionally present the performance of three 3D convolutional architectures for video classification used to assess ejection fraction to near-expert human performance and as a benchmark for further collaboration, comparison, and creation of task-specific architectures.  To the best of our knowledge, this is the largest labeled medical video dataset made available publicly to researchers and medical professionals and first public report of video-based 3D convolutional architectures to assess cardiac function. </h3>
