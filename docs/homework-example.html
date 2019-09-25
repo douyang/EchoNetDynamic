@@ -1,0 +1,72 @@
+<head>
+  <title>Example writeup</title>
+  <script src="plugins/main.js"></script>
+  <style> .solution {line-height: 1.8em;} </style>
+</head>
+<body>
+
+<div class="assignmentTitle">
+Example Writeup
+</div>
+
+<p>
+Homeworks should be written up clearly and succinctly; you may lose points if your answers
+are unclear or unnecessarily complicated.
+This is an example of what we are looking for.
+</p>
+
+<div class="problemTitle">
+Simple Question
+</div>
+
+<p>
+<b>Question:</b> In big-O notation, how many contiguous subsequences are there of a list of $n$ numbers?
+</p>
+
+<div class="solution">
+<b>Answer:</b> There are $O(n)$ choices for the starting position of the subsequence
+and $O(n)$ choices for the ending position.
+Therefore, there are $O(n^2)$ possible contiguous subsequences.
+</div>
+
+<p>
+Here, using words is precise enough and easy to read.
+</p>
+
+<div class="problemTitle">
+More Involved Question
+</div>
+
+<p>
+<b>Question:</b> Suppose you flip a sequence of independent fair coins until you get heads,
+and on each preceding tails flip, you roll a 6-sided fair dice.
+What is the expected value of the sum of the die?
+</p>
+
+<div class="solution">
+<b>Answer:</b>
+<ul>
+<li>Let $Z_1, Z_2, \dots$ be the values of the coin tosses.
+<li>Let $X_1, X_2, \dots$ be the values of the dice rolls
+(let $X_i=0$ if the $i$th dice was not rolled).
+<li>Let $A_i$ be the event that $i$th dice was rolled,
+which is exactly when $Z_1, \dots, Z_i$ are all tails.
+This happens with probability $\mathbb{P}(A_i) = 2^{-i}$ by independence of the coin flips.
+<li>If the $i$th dice is rolled, then expected contribution to the sum is
+$\mathbb{E}[X_i|A_i]=3.5$; otherwise, it is zero.
+<li>Finally, the expected value of the sum, by linearity of expectation, is
+<p style="text-align:center;">$\sum_{i=1}^{\infty}\mathbb{E}[X_i] = \sum_{i=1}^{\infty}(3.5\cdot 2^{-i}+0) = 3.5$</p>
+</div>
+
+<p>
+<b>General guidelines:</b>
+<ul>
+<li>Try to balance mathematical notation and words.
+<li>Introduce notation only if you need to refer back to it later in an exact way and words aren't enough.
+<li>If you introduce your own notation in the problem, define everything up front.
+<li>When you make a statement, it should be clear whether it is assumed from the problem, or derived from a previous step, or something that you're trying to derive.
+<li>Regardless of whether you use mathematical notation of words, be clear and precise.
+<li>You can break down a solution using bullet points to make things more readable.
+</p>
+
+</body>

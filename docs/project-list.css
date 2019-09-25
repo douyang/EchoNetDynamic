@@ -1,0 +1,86 @@
+html, body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#wrapper {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.description {
+  font-size: 120%;
+  font-weight: bold;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid gray;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+.project {
+  padding: 0.8em;
+}
+
+.project.odd {
+  background-color: #f8f8ff;
+}
+
+.project.even {
+  background-color: #f0f0f8;
+}
+
+.titlebar, .authorbar, .mentorbar {
+  margin-right: 240px;
+}
+
+.titlebar {
+  font-weight: bold;
+  color: #334;
+}
+
+.buttonbox {
+  float: right;
+  margin: 0;
+}
+
+.poster, .report {
+  display: inline-block;
+  vertical-align: bottom;
+  padding: 0.5em;
+  margin: 0 0.2em;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  border-style: solid;
+  border-width: 0 1px 4px;
+  border-radius: 5px;
+}
+
+.poster {
+  background-color: #158cba;
+  border-color: #127ba3;
+}
+
+.report {
+  background-color: #20ae26;
+  border-color: #1b9e20;
+}
+
+.poster:hover, .report:hover {
+  margin-top: 1px;
+  border-bottom-width: 3px;
+}
+
+.poster:active, .report:active {
+  margin-top: 1px;
+  border-bottom-width: 2px;
+}
+
+.author {
+  color: #445;
+}
+
+.mentor {
+  color: gray;
+  font-size: 14px;
+}
