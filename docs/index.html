@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Authors: David Ouyang, Bryan He, Matt P. Lungren, Euan A. Ashley, David H. Liang, James Y. Zou 2019 -->
 <html lang="en">
   <head>
     <title>EchoNet Dynamic</title>
@@ -42,8 +43,8 @@
           <div class="col-md-8">
             <div id="logo" class=" clearfix"><a href="/"><img class="img-responsive" src="SU_Seal_Red.png" alt="Stanford University" /></a></div>
             <div id="signature">
-              <div id="site-name"> <a href="/"><span id="site-name-1" style="font-size:20pt">EchoNet Dynamic: a Large New Cardiac Motion Video Data Resource for Medical Machine Learning</span></a> </div>
-              <div id="site-slogan"> <a href="/"><span id="site_slogan">David Ouyang, Bryan He, Matt P. Lungren, Euan A. Ashley, David H. Liang, James Y. Zou</span></a> </div>
+              <div id="site-name"> <a href="/"><span id="site-name-1" style="font-size:20pt">EchoNet-Dynamic</span></a> </div>
+              <div id="site-slogan"> <a href="/"><span id="site_slogan">: A Large New Cardiac Motion Video Data Resource for Medical Machine Learning</span></a> </div>
             </div>
           </div>
         </div>
@@ -78,110 +79,14 @@
     </div>
     <!-- /mainmenu -->
     <!--End Header-->
-    <div id="content" class="container" role="intro" tabindex="0">
+    <div id="intro" class="container" role="introduction" tabindex="0">
       <h2>Introduction</h2>
-      <h3>Time/Location:</h3>
-      <ul>
-        <li>Lectures: Tue/Thu 1:30-2:50 PM in STLC114</li>
-        <li>Sections: Fri 11:30-12:20 AM in 200-203</li>
-        <li>Office hours: See the <a href="#calendar">calendar</a> for times and locations
-      </ul>
-      <h3>Instructor:</h3>
-      <ul>
-        <li><a href="https://dorsa.fyi/">Dorsa Sadigh</a>
-      </ul>
-      <h3>Course assistants:</h3>
-      <ul>
-        <li>Zhi Bie
-        <li>Bryan He
-        <li>Andrey Kurenkov
-        <li>Anna Wang
-        <li>Feiran Wang
-      </ul>
-      <h3>How to contact us:</h3>
-      <p>
-        Please use <a href="https://piazza.com/class/jfa5tlzb1me38q">Piazza</a>
-        for all questions related to lectures, homeworks, and projects.
-        We will also use Piazza for announcements.
-        There is no access code required to join.
-      </p>
-      <h3>Calendar:</h3>
-      <p>
-        Look <a href="#calendar">here</a> for times of all lectures, sections, office hours, and due dates.
-      </p>
-      <h3>Office Hour Logistics:</h3>
-      <p>
-        We are using <a href="http://queuestatus.com">QueueStatus</a> to manage office hours.
-        When you wish to join the queue, click "Sign Up" at the <a href="http://queuestatus.com/queues/129">CS221 queue</a>.
-        Be sure to enter your email when you "Sign Up"; this is a way for the CA to contact you.
-        Look for announcements on the left panel for more information.
-      </p>
-      <h3>Grades:</h3>
-      <p>
-        We are using <a href="https://gradescope.com/courses/17217">Gradescope</a> for grades and assignments.
-      </p>
-      <h2>Content</h2>
-      <h3>What is this course about?</h3>
-      <p>
-        What do web search, speech recognition, face recognition, machine translation,
-        autonomous driving, and automatic scheduling have in common?
-        These are all complex real-world problems,
-        and the goal of artificial intelligence (AI) is to tackle these
-        with rigorous mathematical tools.
-        In this course, you will learn the foundational principles that drive these
-        applications and practice implementing some of these systems.  Specific
-        topics include machine learning, search, game playing, Markov decision
-        processes, constraint satisfaction, graphical models, and logic.
-        The main goal of the course is to equip you with the tools to tackle new
-        AI problems you might encounter in life.
-      </p>
-      <h3>Prerequisites:</h3>
-      <p>
-        This course is fast-paced and covers a lot of ground,
-        so it is important that you have a solid foundation on both the theoretical and empirical fronts.
-        You should have taken the following classes (or their equivalents):
-      </p>
-      <ul>
-        <li>Programming (<a href="http://www.stanford.edu/class/cs106a/">CS 106A</a>, <a href="http://www.stanford.edu/class/cs106b/">CS 106B</a>, <a href="http://www.stanford.edu/class/cs107/">CS 107</a>)</li>
-        <li>Discrete math (<a href="http://www.stanford.edu/class/cs103/">CS 103</a>)</li>
-        <li>Probability (<a href="http://www.stanford.edu/class/cs109/">CS 109</a>)</li>
-      </ul>
-      <h3>Reading:</h3>
-      <p>
-        There is no required textbook for this class, and you should be able to
-        learn everything from the lecture notes and homeworks.
-        However, if you would like to pursue more advanced topics or get another
-        perspective on the same material, here are some books:
-      </p>
-      <ul>
-        <li><a href="http://aima.cs.berkeley.edu">Russell and Norvig.  Artificial
-          Intelligence: A Modern Approach.</a> A comprehensive reference for
-          all the AI topics that we will cover.
-        </li>
-        <li>
-          <a href="http://mitpress.mit.edu/books/probabilistic-graphical-models">Koller and Friedman.  Probabilistic Graphical Models.</a>
-          Covers factor graphs and Bayesian networks (this is the textbook for CS228).
-        </li>
-        <li>
-          <a href="https://mitpress.mit.edu/books/reinforcement-learning">Sutton and Barto.  Reinforcement Learning: An Introduction.</a>
-          Covers Markov decision processes and reinforcement learning.  Available free online.
-        </li>
-        <li>
-          <a href="https://web.stanford.edu/~hastie/ElemStatLearn/">Hastie, Tibshirani, and Friedman.  The elements of statistical learning.</a>
-          Covers machine learning.  Available free online.
-        </li>
-        <li>
-          <a href="http://www.bracil.net/edward/fcs.html">Tsang.  Foundations of constraint satisfaction.</a>
-          Covers constraint satisfaction problems.  Available free online.
-        </li>
-      </ul>
-      <p>
-        Bear in mind that some of these books can be quite dense and use different
-        notation terminology, so it might take some effort to connect up with the
-        material from class.
-      </p>
+      <h3>Echocardiography, or cardiac ultrasound, is the most widely used and readily available imaging technique to assess cardiac function and structure. Combining rapid image acquisition, high temporal resolution, and without the risks of ionizing radiation, echocardiography serves as the backbone of cardiovascular imaging and is one of the most frequently used imaging studies in the United States. For diseases ranging from cardiomyopathies to valvular heart diseases, echocardiography is both necessary and sufﬁcient to diagnose many cardiovascular diseases. We introduce a new large video dataset of echocardiograms for computer vision research. The EchoNet-Dynamic database includes 10,036 labeled echocardiogram videos and human expert tracing to provide images to study cardiac motion and chamber volumes. </h3>
+      
       <h2 id="motivation">Motivation</h2>
-      <iframe src="https://calendar.google.com/calendar/embed?src=fcpskhcr4eilgrhmqt3l7dfcds%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      <h3> Machine learning analysis of biomedical images has seen significant recent advances. In contrast, there has been much less work on medical videos, despite the fact that videos are routinely used in many clinical settings. A major bottleneck for this is the the lack of openly available and well annotated medical video data. Computer vision has benefited greatly from many open databases which allow for collaboration, comparison, and creation of medical task specific architectures. We present the EchoNet-Dynamic Dataset of 10,036 echocardiography videos, spanning the range of typical echocardiography lab imaging conditions, with corresponding labeled measurements including ejection fraction, left ventricular volume at end-systole and end-diastole, and human expert tracings of the left ventricle as an aid in studying automated approaches to evaluate cardiac function. We additionally present the performance of three 3D convolutional architectures for video classification used to assess ejection fraction to near-expert human performance and as a benchmark for further collaboration, comparison, and creation of task-specific architectures.  To the best of our knowledge, this is the largest labeled medical video dataset made available publicly to researchers and medical professionals and first public report of video-based 3D convolutional architectures to assess cardiac function. </h3>
+      
+
       <h2 id="dataset">Dataset</h2>
       <ul>
         <li>
