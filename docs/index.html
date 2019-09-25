@@ -1,4 +1,343 @@
-Testing 123
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CS 221: Artificial Intelligence: Principles and Techniques</title>
+    <meta name="description" content="Course webpage for CS 221 at Stanford." />
+    <!--#include file="lagunita.html" -->
+    <!--Lagunita Theme (TODO: Server side include)-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <script src="plugins/main.js?0"></script>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="lagunita/js/modernizr.custom.17475.js"></script>
+    <script src="lagunita/js/bootstrap.min.js"></script>
+    <script src="lagunita/js/base.js?v=1.0"></script>
+    <script src="lagunita/js/custom.js"></script>
+    <link rel="stylesheet" href="lagunita/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="lagunita/css/base.min.css?v=0.1" type="text/css" />
+    <link rel="stylesheet" href="lagunita/css/custom.css?v=0.1" type="text/css"/>
+    <!--End Lagunita Theme-->
 
-Lets see if this works                                    
-  
+  </head>
+  <body class="site-slogan">
+    <!--#include file="header.html" -->
+    <!--Header (TODO: Server side include)-->
+    <div id="top">
+      <div class="container">
+        <!--=== Skip links ===-->
+        <div id="skip"> <a href="#content" onClick="$('#content').focus()">Skip to content</a> </div>
+        <!-- /Skip links -->
+      </div>
+    </div>
+    <div id="brandbar">
+      <div class="container"> <a href="http://www.stanford.edu"> <img src="lagunita/images/brandbar-stanford-logo%402x.png" alt="Stanford University" width="152" height="23"> </a> </div>
+      <!-- .container end -->
+    </div>
+    <div id="header" class="clearfix" role="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div id="logo" class=" clearfix"><a href="/"><img class="img-responsive" src="SU_Seal_Red.png" alt="Stanford University" /></a></div>
+            <div id="signature">
+              <div id="site-name"> <a href="/"><span id="site-name-1" style="font-size:20pt">CS 221: Artificial Intelligence: Principles and Techniques</span></a> </div>
+              <div id="site-slogan"> <a href="/"><span id="site_slogan">Spring 2017-2018</span></a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Menu -->
+    <div id="mainmenu" class="clearfix" role="navigation">
+      <div class="container">
+        <div class="navbar navbar-default">
+          <!-- main navigation -->
+          <button type="button" class="navbar-toggle btn-navbar" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="menu-text">Menu</span></button>
+          <!-- /nav-collapse -->
+          <div class="navbar-collapse collapse">
+            <div  role="navigation">
+              <div id="primary-nav">
+                <ul class="nav navbar-nav" aria-label="primary navigation">
+                  <li id="nav-1"> <a href="index.html">Home</a> </li>
+                  <li id="nav-1"> <a href="index.html#calendar">Calendar</a> </li>
+                  <li id="nav-1"> <a href="index.html#coursework">Coursework</a> </li>
+                  <li id="nav-1"> <a href="https://gradescope.com/courses/17217">Gradescope</a> </li>
+                  <li id="nav-1"> <a href="https://piazza.com/class/jfa5tlzb1me38q">Piazza</a> </li>
+                  <li id="nav-1"> <a href="project.html">Project</a> </li>
+                  <li id="nav-1"> <a href="http://queuestatus.com/queues/129">Queuestatus</a> </li>
+                  <li id="nav-1"> <a href="index.html#schedule">Schedule</a> </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /nav-collapse -->
+        </div>
+        <!-- /navbar -->
+      </div>
+      <!-- /container -->
+    </div>
+    <!-- /mainmenu -->
+    <!--End Header-->
+    <div id="content" class="container" role="main" tabindex="0">
+      <h2>Logistics</h2>
+      <h3>Time/Location:</h3>
+      <ul>
+        <li>Lectures: Tue/Thu 1:30-2:50 PM in STLC114</li>
+        <li>Sections: Fri 11:30-12:20 AM in 200-203</li>
+        <li>Office hours: See the <a href="#calendar">calendar</a> for times and locations
+      </ul>
+      <h3>Instructor:</h3>
+      <ul>
+        <li><a href="https://dorsa.fyi/">Dorsa Sadigh</a>
+      </ul>
+      <h3>Course assistants:</h3>
+      <ul>
+        <li>Zhi Bie
+        <li>Bryan He
+        <li>Andrey Kurenkov
+        <li>Anna Wang
+        <li>Feiran Wang
+      </ul>
+      <h3>How to contact us:</h3>
+      <p>
+        Please use <a href="https://piazza.com/class/jfa5tlzb1me38q">Piazza</a>
+        for all questions related to lectures, homeworks, and projects.
+        We will also use Piazza for announcements.
+        There is no access code required to join.
+      </p>
+      <h3>Calendar:</h3>
+      <p>
+        Look <a href="#calendar">here</a> for times of all lectures, sections, office hours, and due dates.
+      </p>
+      <h3>Office Hour Logistics:</h3>
+      <p>
+        We are using <a href="http://queuestatus.com">QueueStatus</a> to manage office hours.
+        When you wish to join the queue, click "Sign Up" at the <a href="http://queuestatus.com/queues/129">CS221 queue</a>.
+        Be sure to enter your email when you "Sign Up"; this is a way for the CA to contact you.
+        Look for announcements on the left panel for more information.
+      </p>
+      <h3>Grades:</h3>
+      <p>
+        We are using <a href="https://gradescope.com/courses/17217">Gradescope</a> for grades and assignments.
+      </p>
+      <h2>Content</h2>
+      <h3>What is this course about?</h3>
+      <p>
+        What do web search, speech recognition, face recognition, machine translation,
+        autonomous driving, and automatic scheduling have in common?
+        These are all complex real-world problems,
+        and the goal of artificial intelligence (AI) is to tackle these
+        with rigorous mathematical tools.
+        In this course, you will learn the foundational principles that drive these
+        applications and practice implementing some of these systems.  Specific
+        topics include machine learning, search, game playing, Markov decision
+        processes, constraint satisfaction, graphical models, and logic.
+        The main goal of the course is to equip you with the tools to tackle new
+        AI problems you might encounter in life.
+      </p>
+      <h3>Prerequisites:</h3>
+      <p>
+        This course is fast-paced and covers a lot of ground,
+        so it is important that you have a solid foundation on both the theoretical and empirical fronts.
+        You should have taken the following classes (or their equivalents):
+      </p>
+      <ul>
+        <li>Programming (<a href="http://www.stanford.edu/class/cs106a/">CS 106A</a>, <a href="http://www.stanford.edu/class/cs106b/">CS 106B</a>, <a href="http://www.stanford.edu/class/cs107/">CS 107</a>)</li>
+        <li>Discrete math (<a href="http://www.stanford.edu/class/cs103/">CS 103</a>)</li>
+        <li>Probability (<a href="http://www.stanford.edu/class/cs109/">CS 109</a>)</li>
+      </ul>
+      <h3>Reading:</h3>
+      <p>
+        There is no required textbook for this class, and you should be able to
+        learn everything from the lecture notes and homeworks.
+        However, if you would like to pursue more advanced topics or get another
+        perspective on the same material, here are some books:
+      </p>
+      <ul>
+        <li><a href="http://aima.cs.berkeley.edu">Russell and Norvig.  Artificial
+          Intelligence: A Modern Approach.</a> A comprehensive reference for
+          all the AI topics that we will cover.
+        </li>
+        <li>
+          <a href="http://mitpress.mit.edu/books/probabilistic-graphical-models">Koller and Friedman.  Probabilistic Graphical Models.</a>
+          Covers factor graphs and Bayesian networks (this is the textbook for CS228).
+        </li>
+        <li>
+          <a href="https://mitpress.mit.edu/books/reinforcement-learning">Sutton and Barto.  Reinforcement Learning: An Introduction.</a>
+          Covers Markov decision processes and reinforcement learning.  Available free online.
+        </li>
+        <li>
+          <a href="https://web.stanford.edu/~hastie/ElemStatLearn/">Hastie, Tibshirani, and Friedman.  The elements of statistical learning.</a>
+          Covers machine learning.  Available free online.
+        </li>
+        <li>
+          <a href="http://www.bracil.net/edward/fcs.html">Tsang.  Foundations of constraint satisfaction.</a>
+          Covers constraint satisfaction problems.  Available free online.
+        </li>
+      </ul>
+      <p>
+        Bear in mind that some of these books can be quite dense and use different
+        notation terminology, so it might take some effort to connect up with the
+        material from class.
+      </p>
+      <h2 id="calendar">Calendar</h2>
+      <iframe src="https://calendar.google.com/calendar/embed?src=fcpskhcr4eilgrhmqt3l7dfcds%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      <h2 id="coursework">Coursework</h2>
+      <ul>
+        <li>
+          <b>Homeworks</b> (60%):
+          There will be weekly homeworks with both written and programming parts.
+          Each homework is centered around an application and will also deepen your understanding of the theoretical concepts.
+          Some homeworks will have a competition component; winners will receive extra credit.
+          Here are all the homework deadlines:
+          <div id="homeworks"></div>
+        </li>
+        <li>
+          <b>Exam</b> (20%): The exam is a three-hour written exam that will
+          test your knowledge and problem-solving skills on all preceding lectures and homeworks.
+          You cannot use any external aids
+          except one double-sided page of notes.
+          If you have a conflict or have an OAE exception,
+          submit a request on Piazza to take it at another (earlier) time.
+          Your request must be submitted by <strong>Tue May 01</strong>.
+          <p style="margin-left:1in">
+            Date:  <strong>Tue May 29</strong> from 6 PM to 9 PM<br />
+            Location: 420-040
+          </p>
+          <ul>
+            <li>
+              <a href="restricted/exams/exam-2017.pdf">2017 exam</a>
+              [<a href="restricted/exams/exam-2017-solution.pdf">solutions</a>]
+            </li>
+            <li>
+              <a href="restricted/exams/exam-2016.pdf">2016 exam</a>
+              [<a href="restricted/exams/exam-2016-solution.pdf">solutions</a>]
+            </li>
+            <li>
+              <a href="restricted/exams/exam-2015.pdf">2015 exam</a>
+              [<a href="restricted/exams/exam-2015-solution.pdf">solutions</a>]
+            </li>
+            <li>
+              <a href="restricted/exams/exam-2014.pdf">2014 exam</a>
+              [<a href="restricted/exams/exam-2014-solution.pdf">solutions</a>]
+            </li>
+            <li>
+              <a href="restricted/exams/exam-2013.pdf">2013 exam</a>
+              [<a href="restricted/exams/exam-2013-solution.pdf">solutions</a>]
+            </li>
+          </ul>
+          <br />
+        </li>
+        <li>
+          <b><a href="project.html">Project</a></b> (20%): The final project provides an opportunity for you to
+          use the tools from class to build something interesting of your choice.
+          Projects should be done in groups of up to three.
+          The project will be something that you work on throughout the course and we have set up some milestones
+          to help you along the way:
+          <div id="projects"></div>
+          <p>
+            The poster session will be held  on <strong>Tue Jun 5</strong> from 9 AM to 12 PM on the AT&T patio outside Gates.
+          <p>
+            See <a href="project.html">the project page</a> for more details.
+          <p>
+            Regardless of the group size, all groups must submit the same basic amount of work as detailed in each milestone.
+            Of course, the experiments may not always be successful,
+            so we will cut the smaller groups more slack,
+            while larger groups are expected to be more thorough in their experiments.
+          </p>
+          <p>For inspiration, we have made
+            <a href="fall2017/project-list.html">previous CS221 projects</a> available for viewing.
+          </p>
+        </li>
+        <li><b>Piazza</b>:
+          You will be awarded with up to 2% extra credit
+          if you answer other students' questions in a substantial and helpful way.
+      </ul>
+      <h2>Assignments</h2>
+      <div class="section"><b>Written assignments:</b>
+        Homeworks should be written up clearly and succinctly; you may lose points if your answers
+        are unclear or unnecessarily complicated.
+        Here is an <a href="homework-example.html">example</a> of what we are looking for.
+        You are encouraged to use LaTeX to writeup your homeworks
+        (here's a <a href="homework.tex">template</a>), but this is not a requirement. You will receive
+        <b>one (1) bonus point</b> for submitting a typed written assignment (e.g. LaTeX, Microsoft Word).
+        We will accept scanned handwritten assignments but they will not receive the bonus point.
+      </div>
+      <div class="section">
+        <b>Programming assignments:</b>
+        The grader runs on Python 2.7, which is not guaranteed to work with newer versions (Python 3) or older versions (below 2.7).
+        Please use <a href="https://www.python.org/downloads/">Python 2.7</a> to develop your code.
+        <p>
+          Although we recommend that you use a UNIX environment (e.g., Linux or OS X),
+          the sanity check script <code>grader.py</code> should work on Windows as well.
+          We encourage you to use <code>rice.stanford.edu</code> if you need a UNIX environment.
+          The final grading will be run on the Gradescope server.
+          Let us know if your code runs on <code>rice.stanford.edu</code> but not Gradescope.
+      </div>
+      <div class="section">
+        <b>Collaboration policy and honor code:</b>
+        You are free to form study groups and discuss homeworks and projects.
+        However, you must write up homeworks and code from scratch independently.
+        The following are considered to be honor code violations:
+        <ul>
+          <li>Looking at the writeup or code of another student.</li>
+          <li>Showing your writeup or code to another student.</li>
+          <li>Discussing homework problems in such detail that your solution (writeup or code) is almost identical to another student's answer.</li>
+          <li>Uploading your writeup or code to a public repository (e.g. github, bitbucket, pastebin) so that it can be accessed by other students.</li>
+          <li>Looking at solutions from previous years' homeworks - either official or written up by another student.</li>
+        </ul>
+        When debugging code together, you are only allowed to look at the input-output behavior
+        of each other's programs (so you should write good test cases!).
+        It is important to remember that even if you didn't copy but just gave
+        another student your solution, you are still violating the honor code, so please be careful.
+        We periodically run similarity-detection software over all
+        submitted student programs, including programs from past quarters and any
+        solutions found online on public websites.
+        Anyone violating the <a
+          href="https://communitystandards.stanford.edu/student-conduct-process/honor-code-and-fundamental-standard">honor
+        code</a> will be referred to the Office of Judicial Affairs.
+        If you feel like you made a mistake (it can happen, especially under time
+        pressure!), please reach out to Dorsa or the head CA;
+        the consequences will be much less severe than if we approach you.
+      </div>
+      <p class="subheader">Submission</p>
+      <div class="section">
+        <b>Electronic Submission:</b>
+        All assignments (homework problems and project milestones) must be submitted on Gradescope by
+        <b><span style="color: red">11 PM</span> (23:00, not 23:59)</b>.
+        <p>
+          For assignments with a programming component, we will automatically
+          sanity check your code in some basic test cases, but we will grade
+          your code on additional test cases.
+          <b>Important</b>: just because you pass the basic test cases, you are by no
+          means guaranteed to get full credit on the other test cases, so you should
+          test the program more thoroughly yourself!
+        <p>
+          Unless the assignment instructs otherwise, all of your code modifications
+          should be in <code>submission.py</code> and all of your written answers
+          in <code>&lt;assignment ID&gt;.pdf</code>.
+      </div>
+      <div class="section"><b>Late days:</b>
+        An assignment is $\lceil d \rceil$ days late if it is turned in $d$ fractional days late
+        (note that this means if you are $1$ second late, $d = 1/(24 \times 60 \times 60)$ and it is 1 day late).
+        You have <b>eight (8) late days</b>
+        in total that can be distributed among the assignments (except the
+        final project report) without penalty.
+        There is a maximum of <b>two (2) late days</b> that can be used per assignment.
+        If you exceed this limit by $k$ hours,
+        then you will incur a multiplicative penalty factor of $\max(1 - k/5, 0)$.
+        For example, if you get $40$ points and turn in your homework 2 days + 1.5 hours after the deadline,
+        then your effective score is $40(1 - 1.5/5) = 28$.
+        If you exceed $5$ hours, you will receive $0$ points.
+        You get a zero after all your late days run out, but we reserve the right to give partial credit in extenuating circumstances.
+      </div>
+      <div class="section"><b>Regrades</b>:
+        You may submit regrade requests on <a href="https://gradescope.com/courses/17217">Gradescope</a>.
+        Regrade requests are due one week after grades are released.
+        Regrade requests are due one week after grades are released.
+      </div>
+    </div>
+  </body>
+</html>
