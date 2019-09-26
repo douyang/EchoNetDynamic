@@ -86,11 +86,11 @@
       <h3>Echocardiography, or cardiac ultrasound, is the most widely used and readily available imaging technique to assess cardiac function and structure. Combining rapid image acquisition, high temporal resolution, and without the risks of ionizing radiation, echocardiography serves as the backbone of cardiovascular imaging and is one of the most frequently used imaging studies in the United States. For diseases ranging from cardiomyopathies to valvular heart diseases, echocardiography is both necessary and sufﬁcient to diagnose many cardiovascular diseases. We introduce a new large video dataset of echocardiograms for computer vision research. The EchoNet-Dynamic database includes 10,036 labeled echocardiogram videos and human expert tracing to provide images to study cardiac motion and chamber volumes. </h3>
       <br> 
       
-    <video width="320" height="320" controls autoplay loop >
+    <video class="center" width="320" height="320" controls autoplay loop >
       <source src="media/Example1.mp4" type=video/mp4>
     </video>
       
-    <video width="320" height="320" controls autoplay loop >
+    <video class="center" width="320" height="320" controls autoplay loop >
       <source src="media/Example2.mp4" type=video/mp4>
     </video>
       <br><br>
@@ -99,20 +99,20 @@
       
 <br><br>
       <h2 id="dataset">Dataset</h2>
-        <img width="800" src="media/Schematic.jpg">
+        <img class="center" width="800" src="media/Schematic.jpg">
       <p>
           <h3><b>Echocardiogram Videos</b>:
 A standard full resting echocardiogram study consists of a series of 50-100 videos and still images visualizing the heart from different angles, locations, and image acquisition techniques. The dataset contains 10,036 echocardiography videos from individuals who underwent echocardiography between 2006 and 2018 as part of routine clinical care at Stanford University Hospital. Each  video was cropped and masked to remove text, ECG and respirometer information, and other information outside of the scanning sector. The resulting square images were either 600x600 or 768x768 pixels depending on the ultrasound machine and downsampled by cubic interpolation using OpenCV into standardized 112x112 pixel videos. 
         </h3></p>
     
              <br>
-      <img src="media/MetaDataVariables.JPG">
+      <img class="center" src="media/MetaDataVariables.JPG">
             <h3>
               <p>
       <b>Measurements</b> In addition to the video itself, each study is linked to clinical measurements and calculations obtained by a registered sonographer and veriﬁed by a level 3 echocardiographer in the standard clinical workﬂow. A central metric of cardiac function is the left ventricular ejection fraction, which is used to diagnose cardiomyopathy, assess eligibility for certain chemotherapies, and determine indication for medical devices. The ejection fraction is expressed as a percentage and is the ratio of left ventricular end systolic volume (ESV) and left ventricular end diastolic volume (EDV) determined by (EDV - ESV) / EDV. 
          </h3> </p>
          <br>
-              <img width="320" height="320" src="media/Tracings.JPG">
+              <img class="center" width="320" height="320" src="media/Tracings.JPG">
       <p> <h3>
           <b>Tracings</b>:  In our dataset, and in standard echocardiography practice, the left ventricle is traced at the endocardial border at two separate time points representing end-systole and end-diastole for each video. Each tracing is used to estimate ventricular volume by integration of ventricular area over the length of the major axis of the ventricle
       </h3> </p>
@@ -126,8 +126,8 @@ A standard full resting echocardiogram study consists of a series of 50-100 vide
   
       <br>
       
-      <img src="media/ModelPerformance.JPG">
-      <img src="media/HyperparameterSearch.JPG">
+      <img class="center" src="media/ModelPerformance.JPG">
+      <img  class="center" src="media/HyperparameterSearch.JPG">
 <br><br>
 
 <h2 id="leaderboard">Leaderboard</h2> 
@@ -160,13 +160,12 @@ A standard full resting echocardiogram study consists of a series of 50-100 vide
 <p>You agree to indemnify and hold Stanford harmless from any claims, losses or damages, including legal fees, arising out of or resulting from your use of the EchoNet-Dynamic Dataset or your violation or role in violation of these Terms. You agree to fully cooperate in Stanford&rsquo;s defense against any such claims. These Terms shall be governed by and interpreted in accordance with the laws of California. </p></div><!-- Begin MailChimp Signup Form -->
 </h3>
   
-<br><br>
+<br><br><br><br>
 <h2 id="citation">Citation</h2>            
   <h3>EchoNet-Dynamic: A Large New Cardiac Motion Video Data Resource for Medical Machine Learning. </h32>
   <h3> David Ouyang, Bryan He, Matt P. Lungren, Euan A. Ashley, David H. Liang, James Y. Zou</h3><p>
-  <section class="bg-primary"><div class="container"><div class="row"><div class="col-md-7"><h3>To learn more, <code><a href="https://google.com">read our manuscript</a></code>.</h3>
-    <p>For enquiries, contact us at <code>ouyangd@stanford.edu</code></p>
-    </div>
+  <p>For enquiries, contact us at <code>ouyangd@stanford.edu</code></p>
+
 
   </body>
 </html>
