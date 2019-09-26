@@ -65,9 +65,10 @@
                   <li id="nav-1"> <a href="index.html#intro">Introduction</a> </li>
                   <li id="nav-1"> <a href="index.html#motivation">Motivation</a> </li>
                   <li id="nav-1"> <a href="index.html#dataset">Dataset</a> </li>
+                  <li id="nav-1"> <a href="index.html#model">Baseline Model</a> </li>
                   <li id="nav-1"> <a href="index.html#leaderboard">Leaderboard</a> </li>
                   <li id="nav-1"> <a href="index.html#access">Accessing Dataset</a> </li>
-                   <li id="nav-1"> <a href="index.html#citation">Accessing Dataset</a> </li>
+                   <li id="nav-1"> <a href="index.html#citation">Citation</a> </li>
                 </ul>
               </div>
             </div>
@@ -98,8 +99,7 @@
       
 
       <h2 id="dataset">Dataset</h2>
-      <object data="Schematic.jpg" width="1280" height="480"> <param name="src" value="Schematic.jpg" /> </object>
-        
+        <img src="media/Schematic.JPG">
           <h3><b>Echocardiogram Videos</b>:
 A standard full resting echocardiogram study consists of a series of 50-100 videos and still images visualizing the heart from different angles, locations, and image acquisition techniques. The dataset contains 10,036 echocardiography videos from individuals who underwent echocardiography between 2006 and 2018 as part of routine clinical care at Stanford University Hospital. Each  video was cropped and masked to remove text, ECG and respirometer information, and other information outside of the scanning sector. The resulting square images were either 600x600 or 768x768 pixels depending on the ultrasound machine and downsampled by cubic interpolation using OpenCV into standardized 112x112 pixel videos. 
         </h3>
@@ -118,14 +118,17 @@ A standard full resting echocardiogram study consists of a series of 50-100 vide
         
 
 
-      <h2 id="leaderboard">Leaderboard</h2> 
+      <h2 id="model">Baseline Models</h2> 
     <h3>
       The dataset release has representative split for training, validation, and testing models. In the future, we will host a competition open to the public to predict ejection fraction. For now, we present 3 models incorporating 3D spatiotemporal convolutions with a comparison of optimal human performance. Hyperparameters of clip length and sampling period were optimized.  </h3>
-      
+  
       <br>
       
       <img src="media/ModelPerformance.JPG">
       <img src="media/HyperparameterSearch.JPG">
+      <h2 id="model">Leaderboard</h2> 
+    <h3>      To be coming...  </h3>      
+      
       
       <h2 id="access">Accessing Dataset</h2>    
       
