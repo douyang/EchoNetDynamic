@@ -50,10 +50,10 @@
           </div>
           <div id="signature">
             <div id="site-name">
-              <a href="https://douyang.github.io/EchoNetDynamic/index.html"><span id="site-name-1" style="font-size:50pt">EchoNet-Dynamic</span></a>
+              <a href="https://douyang.github.io/EchoNetDynamic/index.html"><span id="site-name-1">EchoNet-Dynamic</span></a>
             </div>
             <div id="site-slogan">
-              <a href="https://douyang.github.io/EchoNetDynamic/index.html"><span id="site_slogan" style="font-size:25pt">A Large New Cardiac Motion Video Data Resource for Medical Machine Learning</span></a>
+              <a href="https://douyang.github.io/EchoNetDynamic/index.html"><span id="site_slogan">A Large New Cardiac Motion Video Data Resource for Medical Machine Learning</span></a>
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@
   <!--End Header-->
   <div id="intro" class="container" role="introduction" tabindex="0">
     <h2>Introduction</h2>
-    <h3>Echocardiography, or cardiac ultrasound, is the most widely used and readily available imaging technique to assess cardiac function and structure. Combining rapid image acquisition, high temporal resolution, and without the risks of ionizing radiation, echocardiography serves as the backbone of cardiovascular imaging and is one of the most frequently used imaging studies in the United States. For diseases ranging from cardiomyopathies to valvular heart diseases, echocardiography is both necessary and sufﬁcient to diagnose many cardiovascular diseases. We introduce a new large video dataset of echocardiograms for computer vision research. The EchoNet-Dynamic database includes 10,036 labeled echocardiogram videos and human expert tracing to provide images to study cardiac motion and chamber volumes.</h3><br>
+    <p>Echocardiography, or cardiac ultrasound, is the most widely used and readily available imaging technique to assess cardiac function and structure. Combining rapid image acquisition, high temporal resolution, and without the risks of ionizing radiation, echocardiography serves as the backbone of cardiovascular imaging and is one of the most frequently used imaging studies in the United States. For diseases ranging from cardiomyopathies to valvular heart diseases, echocardiography is both necessary and sufﬁcient to diagnose many cardiovascular diseases. We introduce a new large video dataset of echocardiograms for computer vision research. The EchoNet-Dynamic database includes 10,036 labeled echocardiogram videos and human expert tracing to provide images to study cardiac motion and chamber volumes.</p><br>
     <video class="center" width="320" height="320" controls="" autoplay="" loop=""><source src="media/Example1.mp4" type="video/mp4"></video> <!--
     <video class="center" width="320" height="320" controls autoplay loop >
       <source src="media/Example2.mp4" type=video/mp4>
@@ -114,27 +114,27 @@
     <br>
     <br>
     <h2 id="motivation">Motivation</h2>
-    <h3>Machine learning analysis of biomedical images has seen significant recent advances. In contrast, there has been much less work on medical videos, despite the fact that videos are routinely used in many clinical settings. A major bottleneck for this is the the lack of openly available and well annotated medical video data. Computer vision has benefited greatly from many open databases which allow for collaboration, comparison, and creation of medical task specific architectures. We present the EchoNet-Dynamic Dataset of 10,036 echocardiography videos, spanning the range of typical echocardiography lab imaging conditions, with corresponding labeled measurements including ejection fraction, left ventricular volume at end-systole and end-diastole, and human expert tracings of the left ventricle as an aid in studying automated approaches to evaluate cardiac function. We additionally present the performance of three 3D convolutional architectures for video classification used to
-    assess ejection fraction to near-expert human performance and as a benchmark for further collaboration, comparison, and creation of task-specific architectures. To the best of our knowledge, this is the largest labeled medical video dataset made available publicly to researchers and medical professionals and first public report of video-based 3D convolutional architectures to assess cardiac function.</h3><br>
+    <p>Machine learning analysis of biomedical images has seen significant recent advances. In contrast, there has been much less work on medical videos, despite the fact that videos are routinely used in many clinical settings. A major bottleneck for this is the the lack of openly available and well annotated medical video data. Computer vision has benefited greatly from many open databases which allow for collaboration, comparison, and creation of medical task specific architectures. We present the EchoNet-Dynamic Dataset of 10,036 echocardiography videos, spanning the range of typical echocardiography lab imaging conditions, with corresponding labeled measurements including ejection fraction, left ventricular volume at end-systole and end-diastole, and human expert tracings of the left ventricle as an aid in studying automated approaches to evaluate cardiac function. We additionally present the performance of three 3D convolutional architectures for video classification used to
+    assess ejection fraction to near-expert human performance and as a benchmark for further collaboration, comparison, and creation of task-specific architectures. To the best of our knowledge, this is the largest labeled medical video dataset made available publicly to researchers and medical professionals and first public report of video-based 3D convolutional architectures to assess cardiac function.</p><br>
     <br>
     <h2 id="dataset">Dataset</h2><img class="center" width="1000" src="media/Schematic.jpg">
-    <h3><b>Echocardiogram Videos</b>: A standard full resting echocardiogram study consists of a series of 50-100 videos and still images visualizing the heart from different angles, locations, and image acquisition techniques. The dataset contains 10,036 echocardiography videos from individuals who underwent echocardiography between 2006 and 2018 as part of routine clinical care at Stanford University Hospital. Each video was cropped and masked to remove text, ECG and respirometer information, and other information outside of the scanning sector. The resulting square images were either 600x600 or 768x768 pixels depending on the ultrasound machine and downsampled by cubic interpolation using OpenCV into standardized 112x112 pixel videos.</h3><br>
+    <p><b>Echocardiogram Videos</b>: A standard full resting echocardiogram study consists of a series of 50-100 videos and still images visualizing the heart from different angles, locations, and image acquisition techniques. The dataset contains 10,036 echocardiography videos from individuals who underwent echocardiography between 2006 and 2018 as part of routine clinical care at Stanford University Hospital. Each video was cropped and masked to remove text, ECG and respirometer information, and other information outside of the scanning sector. The resulting square images were either 600x600 or 768x768 pixels depending on the ultrasound machine and downsampled by cubic interpolation using OpenCV into standardized 112x112 pixel videos.</p><br>
     <img class="center" src="media/MetaDataVariables.JPG">
     <p><b>Measurements</b> In addition to the video itself, each study is linked to clinical measurements and calculations obtained by a registered sonographer and veriﬁed by a level 3 echocardiographer in the standard clinical workﬂow. A central metric of cardiac function is the left ventricular ejection fraction, which is used to diagnose cardiomyopathy, assess eligibility for certain chemotherapies, and determine indication for medical devices. The ejection fraction is expressed as a percentage and is the ratio of left ventricular end systolic volume (ESV) and left ventricular end diastolic volume (EDV) determined by (EDV - ESV) / EDV.</p><br>
     <img class="center" width="200" src="media/Tracings.JPG">
-    <h3><b>Tracings</b>: In our dataset, and in standard echocardiography practice, the left ventricle is traced at the endocardial border at two separate time points representing end-systole and end-diastole for each video. Each tracing is used to estimate ventricular volume by integration of ventricular area over the length of the major axis of the ventricle. Below is an example video of a mask generated from a ResNet-50 based segmentation model overlayed with original video.</h3><!-- <video class="center" width="640" height="320" controls autoplay loop >
+    <p><b>Tracings</b>: In our dataset, and in standard echocardiography practice, the left ventricle is traced at the endocardial border at two separate time points representing end-systole and end-diastole for each video. Each tracing is used to estimate ventricular volume by integration of ventricular area over the length of the major axis of the ventricle. Below is an example video of a mask generated from a ResNet-50 based segmentation model overlayed with original video.</p><!-- <video class="center" width="640" height="320" controls autoplay loop >
   <source src="media/Example3.mp4" type=video/mp4></video> -->
     <br>
     <br>
     <h2 id="model">Baseline Models</h2>
-    <h3>The dataset release has representative split for training, validation, and testing models. In the future, we will host a competition open to the public to predict ejection fraction. For now, we present 3 models incorporating 3D spatiotemporal convolutions with a comparison of optimal human performance. Hyperparameters of clip length and sampling period were optimized.</h3><br>
+    <p>The dataset release has representative split for training, validation, and testing models. In the future, we will host a competition open to the public to predict ejection fraction. For now, we present 3 models incorporating 3D spatiotemporal convolutions with a comparison of optimal human performance. Hyperparameters of clip length and sampling period were optimized.</p><br>
     <img class="center" src="media/ModelPerformance.JPG"> <img class="center" src="media/HyperparameterSearch.JPG"><br>
     <br>
     <h2 id="leaderboard">Leaderboard</h2>
-    <h3>To be coming...</h3><br>
+    <p>To be coming...</p><br>
     <br>
     <h2 id="access">Accessing Dataset</h2>
-    <h3>Please read the Stanford University School of Medicine EchoNet-Dynamic Research Use Agreement. Once you register to download the EchoNet-Dynamic dataset, you will receive a link to the download over email. Note that you may not share the link to download the dataset with others.</h3><br>
+    <p>Please read the Stanford University School of Medicine EchoNet-Dynamic Research Use Agreement. Once you register to download the EchoNet-Dynamic dataset, you will receive a link to the download over email. Note that you may not share the link to download the dataset with others.</p><br>
     <div class="well" id="agreement" tabindex="0">
       <h2>Stanford University School of Medicine EchoNet-Dynamic Dataset Research Use Agreement</h2>
       <p>By registering for downloads from the EchoNet-Dynamic Dataset, you are agreeing to this Research Use Agreement, as well as to the Terms of Use of the Stanford University School of Medicine website as posted and updated periodically at http://www.stanford.edu/site/terms/.</p>
@@ -933,7 +933,7 @@
     <br>
     <footer>
       <h2 id="citation">Citation</h2>
-      <h3>EchoNet-Dynamic: A Large New Cardiac Motion Video Data Resource for Medical Machine Learning.</h3>David Ouyang, Bryan He, Amirata Ghorbani, Matt P. Lungren, Euan A. Ashley, David H. Liang, James Y. Zou
+      <p>EchoNet-Dynamic: A Large New Cardiac Motion Video Data Resource for Medical Machine Learning.</p>David Ouyang, Bryan He, Amirata Ghorbani, Matt P. Lungren, Euan A. Ashley, David H. Liang, James Y. Zou
       <p>For enquiries, contact us at <a href="mailto:%20ouyangd@stanford.edu">ouyangd@stanford.edu</a>.</p>
     </footer>
   </div>
