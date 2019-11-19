@@ -104,14 +104,7 @@
   <div id="intro" class="container" role="introduction" tabindex="0">
     <h2>Introduction</h2>
     <p>Echocardiography, or cardiac ultrasound, is the most widely used and readily available imaging technique to assess cardiac function and structure. Combining rapid image acquisition, high temporal resolution, and without the risks of ionizing radiation, echocardiography serves as the backbone of cardiovascular imaging and is one of the most frequently used imaging studies in the United States. For diseases ranging from cardiomyopathies to valvular heart diseases, echocardiography is both necessary and sufﬁcient to diagnose many cardiovascular diseases. We introduce a new large video dataset of echocardiograms for computer vision research. The EchoNet-Dynamic database includes 10,036 labeled echocardiogram videos and human expert tracing to provide images to study cardiac motion and chamber volumes.</p><br>
-    <video class="center" width="320" height="320" controls="" autoplay="" loop=""><source src="media/Example1.mp4" type="video/mp4"></video> <!--
-    <video class="center" width="320" height="320" controls autoplay loop >
-      <source src="media/Example2.mp4" type=video/mp4>
-    </video>
-
-
--->
-    <br>
+    <video class="center" width="320" height="320" autoplay="" loop=""><source src="media/Example1.mp4" type="video/mp4"></video>
     <br>
     <h2 id="motivation">Motivation</h2>
     <p>Machine learning analysis of biomedical images has seen significant recent advances. In contrast, there has been much less work on medical videos, despite the fact that videos are routinely used in many clinical settings. A major bottleneck for this is the the lack of openly available and well annotated medical video data. Computer vision has benefited greatly from many open databases which allow for collaboration, comparison, and creation of medical task specific architectures. We present the EchoNet-Dynamic Dataset of 10,036 echocardiography videos, spanning the range of typical echocardiography lab imaging conditions, with corresponding labeled measurements including ejection fraction, left ventricular volume at end-systole and end-diastole, and human expert tracings of the left ventricle as an aid in studying automated approaches to evaluate cardiac function. We additionally present the performance of three 3D convolutional architectures for video classification used to
@@ -122,17 +115,40 @@
     <img class="center" src="media/MetaDataVariables.JPG">
     <p><b>Measurements</b> In addition to the video itself, each study is linked to clinical measurements and calculations obtained by a registered sonographer and veriﬁed by a level 3 echocardiographer in the standard clinical workﬂow. A central metric of cardiac function is the left ventricular ejection fraction, which is used to diagnose cardiomyopathy, assess eligibility for certain chemotherapies, and determine indication for medical devices. The ejection fraction is expressed as a percentage and is the ratio of left ventricular end systolic volume (ESV) and left ventricular end diastolic volume (EDV) determined by (EDV - ESV) / EDV.</p><br>
     <img class="center" width="200" src="media/Tracings.JPG">
-    <p><b>Tracings</b>: In our dataset, and in standard echocardiography practice, the left ventricle is traced at the endocardial border at two separate time points representing end-systole and end-diastole for each video. Each tracing is used to estimate ventricular volume by integration of ventricular area over the length of the major axis of the ventricle. Below is an example video of a mask generated from a ResNet-50 based segmentation model overlayed with original video.</p><!-- <video class="center" width="640" height="320" controls autoplay loop >
-  <source src="media/Example3.mp4" type=video/mp4></video> -->
-    <br>
-    <br>
-    <h2 id="model">Baseline Models</h2>
-    <p>The dataset release has representative split for training, validation, and testing models. In the future, we will host a competition open to the public to predict ejection fraction. For now, we present 3 models incorporating 3D spatiotemporal convolutions for comparison. </p><br>
-    <img class="center" src="media/HyperparameterSearch.png"><br>
-    <br>
-    <h2 id="leaderboard">Leaderboard</h2>
-    <p>To be coming...</p><br>
-    <br>
+,   <p><b>Tracings</b>: In our dataset, and in standard echocardiography practice, the left ventricle is traced at the endocardial border at two separate time points representing end-systole and end-diastole for each video. Each tracing is used to estimate ventricular volume by integration of ventricular area over the length of the major axis of the ventricle.
+
+    <!--
+    <h2 id="examples">Example Videos</h2>
+    <p>
+    We show examples of our semantic segmentation for nine distinct patients below.
+    Three patients have normal cardiac function, three have low ejection fractions, and three have arrhythmia.
+    No human tracings for these patients were used by EchoNet-Dynamic.
+    </p>
+
+    <table align="center" style="table-layout:fixed;width=100%">
+      <tr>
+        <th>Normal</th>
+        <th>Low Ejection Fraction</th>
+        <th>Arrhythmia</th>
+      </tr>
+      <tr>
+        <td><video class="center" width="320" height="160" autoplay="" loop=""><source src="media/0X10A28877E97DF540.mp4" type="video/mp4"></video></td>
+        <td><video class="center" width="320" height="160" autoplay="" loop=""><source src="media/0X129133A90A61A59D.mp4" type="video/mp4"></video></td>
+        <td><video class="center" width="320" height="160" autoplay="" loop=""><source src="media/0X132C1E8DBB715D1D.mp4" type="video/mp4"></video></td>
+      </tr>
+      <tr>
+        <td><video class="center" width="320" height="160" autoplay="" loop=""><source src="media/0X10B7505562B0A702.mp4" type="video/mp4"></video></td>
+        <td><video class="center" width="320" height="160" autoplay="" loop=""><source src="media/0X13CE2039E2D706A.mp4 " type="video/mp4"></video></td>
+        <td><video class="center" width="320" height="160" autoplay="" loop=""><source src="media/0X18BA5512BE5D6FFA.mp4" type="video/mp4"></video></td>
+      </tr>
+      <tr>
+        <td><video class="center" width="320" height="160" autoplay="" loop=""><source src="media/0X1167650B8BEFF863.mp4" type="video/mp4"></video></td>
+        <td><video class="center" width="320" height="160" autoplay="" loop=""><source src="media/0X16FC9AA0AD5D8136.mp4" type="video/mp4"></video></td>
+        <td><video class="center" width="320" height="160" autoplay="" loop=""><source src="media/0X1E12EEE43FD913E5.mp4" type="video/mp4"></video></td>
+      </tr>
+    </table>
+    -->
+
     <h2 id="access">Accessing Dataset</h2>
     <p>Please read the Stanford University School of Medicine EchoNet-Dynamic Research Use Agreement. Once you register to download the EchoNet-Dynamic dataset, you will receive a link to the download over email. Note that you may not share the link to download the dataset with others.</p><br>
     <div class="well" id="agreement" tabindex="0">
