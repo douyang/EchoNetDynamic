@@ -40,8 +40,6 @@ class Echo(torch.utils.data.Dataset):
 
         if split == "clinical_test":
             self.fnames = sorted(os.listdir(self.folder / "ProcessedStrainStudyA4c"))
-        elif split == "nsc":
-            self.fnames = sorted(os.listdir(self.folder / "ProcessedNSCStudy2"))
         else:
             with open(self.folder / "File List.csv") as f:
                 self.header = f.readline().strip().split(",")
@@ -86,8 +84,6 @@ class Echo(torch.utils.data.Dataset):
 
         if self.split == "clinical_test":
             video = echonet.utils.loadvideo(os.path.join(self.folder, "ProcessedStrainStudyA4c", self.fnames[index]))
-        elif self.split == "nsc":
-            video = echonet.utils.loadvideo(os.path.join(self.folder, "ProcessedNSCStudy2", self.fnames[index]))
         else:
             video = echonet.utils.loadvideo(os.path.join(self.folder, "Videos", self.fnames[index]))
 
@@ -141,7 +137,7 @@ class Echo(torch.utils.data.Dataset):
                 mask[r, c] = 1
                 target.append(mask)
             else:
-                if self.split == "clinical_test" or self.split == "nsc":
+                if self.split == "clinical_test":
                     target.append(np.float32(0))
                 else:
                     target.append(np.float32(self.outcome[index][self.header.index(t)]))

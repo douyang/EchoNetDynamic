@@ -193,7 +193,6 @@ def run(num_epochs=45,
                 plt.savefig(os.path.join(output, "{}_scatter.pdf".format(split)))
                 plt.close(fig)
                 
-                # import code; code.interact(local=dict(globals(), **locals()))
                 fig = plt.figure(figsize=(3, 3))
                 plt.plot([0, 1], [0, 1], linewidth=1, color="k", linestyle="--")
                 for thresh in [35, 40, 45, 50]:

@@ -164,8 +164,6 @@ def run(num_epochs=50,
     dataloader = torch.utils.data.DataLoader(echonet.datasets.Echo(split="all", target_type=["Filename", "LargeIndex", "SmallIndex"], length=None, period=1, segmentation=os.path.join(output, "labels")),
                                              batch_size=1, num_workers=num_workers, shuffle=False, pin_memory=False)
     if save_segmentation and not all([os.path.isfile(os.path.join(output, "videos", f)) for f in dataloader.dataset.fnames]):
-        window = 10
-        tol = 0.1
         pathlib.Path(os.path.join(output, "videos")).mkdir(parents=True, exist_ok=True)
         pathlib.Path(os.path.join(output, "size")).mkdir(parents=True, exist_ok=True)
         echonet.utils.latexify()
