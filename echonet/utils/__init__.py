@@ -4,6 +4,9 @@ import tqdm
 import cv2
 import numpy as np
 import os
+import PIL
+import matplotlib
+matplotlib.use('agg')
 
 from . import video
 from . import segmentation
@@ -77,7 +80,6 @@ def bootstrap(y, yhat, func, samples=10000):
 
 # Based on https://nipunbatra.github.io/blog/2014/latexify.html
 def latexify():
-    import matplotlib
     params = {'backend': 'pdf',
               'axes.titlesize':  8,
               'axes.labelsize':  8,

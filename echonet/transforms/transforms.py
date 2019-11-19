@@ -7,9 +7,6 @@ class Normalize(object):
         self.inplace = inplace
 
     def __call__(self, tensor):
-        # print(tensor.shape)
-        # print(self.mean.shape)
-        # print (tensor - self.mean) 
         return (tensor - self.mean.reshape(3, 1, 1, 1)) / self.std.reshape(3, 1, 1, 1)
 
     def __repr__(self):
