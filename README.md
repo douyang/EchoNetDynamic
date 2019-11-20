@@ -47,6 +47,9 @@ Echonet-Dynamic and its dependencies can be installed by running
 
 Usage
 -----
+### Preprocessing DICOM Videos
+
+The input of EchoNet-Dynamic is an apical-4-chamber view echocardiogram video of any length. The easiest way to run our code is to use videos from our dataset, but we also provide a Jupyter Notebook, `ConvertDICOMToAVI.ipynb`, to convert DICOM files to AVI files used for input to EchoNet-Dynamic. The Notebook deidentifies the video by cropping out information outside of the ultrasound sector, resizes the input video, and saves the video in AVI format. 
 
 ### Setting Path to Data
 
