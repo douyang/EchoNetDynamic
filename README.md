@@ -45,3 +45,53 @@ Echonet-Dynamic and its dependencies can be installed by running
 
     pip3 install .
 
+Usage
+-----
+
+### Setting Path to Data
+
+By default, EchoNet-Dynamic assumes that a copy of the data is saved in a folder named `echonet-dynamic/` in this directory.
+This path can be changed by creating a configuration file named `echonet.cfg` (an example configuration file is `example.cfg`).
+
+### Running Code
+
+EchoNet-Dynamic has three main components: segmenting the left ventricle, predicting ejection fraction from subsampled clips, and assessing cardiomyopathy with beat-by-beat predictions.
+Each of these components can be run with reasonable choices of hyperparameters with the scripts below.
+We describe our full hyperparameter sweep in the next section.
+
+#### Frame-by-frame Semantic Segmentation of the Left Ventricle
+
+    cmd="import echonet; echonet.utils.segmentation.run(modelname=\"deeplabv3_resnet50\",
+                                                        save_segmentation=True,
+                                                        pretrained=False)"
+    python3 -c "${cmd}"
+
+This creates a directory named `output/segmentation/deeplabv3_resnet50_random/`, which will contain
+  - log.csv: training and validation losses
+  - best.pt: checkpoint of weights for the model with the lowest validation loss
+  - size.csv: estimated size of left ventricle for each frame and indicator for beginning of beat
+  - videos: directory containing videos with segmentation overlay
+
+#### Prediction of Ejection Fraction from Subsampled Clips
+
+    cmd="import echonet; echonet.utils.video.run(modelname=\"r2plus1d_18\",
+                                                 frames=32,
+                                                 period=2,
+                                                 pretrained=True,
+                                                 batch_size=8)"
+    python3 -c "${cmd}"
+
+This creates a directory named `output/video/r2plus1d_18_32_2_pretrained/`, which will contain
+  - log.csv: training and validation losses
+  - best.pt: checkpoint of weights for the model with the lowest validation loss
+  - test_predictions.csv: ejection fraction prediction for subsampled clips
+
+#### Beat-by-beat Prediction of Ejection Fraction from Full Video and Assesment of Cardiomyopathy
+
+The final beat-by-beat prediction and analysis is performed with `scripts/beat_analysis.R`.
+This script combines the results from segmentation output in `size.csv` and the clip-level ejection fraction prediction in `test_predictions.csv`.
+
+### Hyperparameter Sweeps
+
+The full set of hyperparameter sweeps from the paper can be run via `run_experiments.sh`.
+In particular, we choose between pretrained and random initialization for the weights, the model (selected from `r2plus1d_18`, `r3d_18`, and `mc3_18`), the length of the video (1, 4, 8, 16, 32, 64, and 96 frames), and the sampling period (1, 2, 4, 6, and 8 frames).
