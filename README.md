@@ -97,8 +97,7 @@ This creates a directory named `output/video/r2plus1d_18_32_2_pretrained/`, whic
 #### Beat-by-beat Prediction of Ejection Fraction from Full Video and Assesment of Cardiomyopathy
 
 The final beat-by-beat prediction and analysis is performed with `scripts/beat_analysis.R`.
-This script combines the results from segmentation output in `size.csv` and the clip-level ejection fraction prediction in `test_predictions.csv`.
-The beginning of beats are detected by using the peak detection algorithm from scipy (`scipy.signal.find_peaks`).
+This script combines the results from segmentation output in `size.csv` and the clip-level ejection fraction prediction in `test_predictions.csv`. The beginning of each systolic phase is detected by using the peak detection algorithm from scipy (`scipy.signal.find_peaks`) and a video clip centered around the beat is used for beat-by-beat prediction.
 
 ### Hyperparameter Sweeps
 
