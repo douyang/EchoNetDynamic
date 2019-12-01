@@ -34,7 +34,7 @@ Installation
 
 First, clone this repository and enter the directory by running:
 
-    git clone git@github.com:douyang/EchoNetDynamic.git
+    git clone https://github.com/douyang/EchoNetDynamic
     cd EchoNetDynamic
 
 EchoNet-Dynamic is implemented for Python 3, and depends on the following packages:
