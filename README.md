@@ -46,9 +46,9 @@ EchoNet-Dynamic is implemented for Python 3, and depends on the following packag
   - sklearn
   - tqdm
 
-Echonet-Dynamic and its dependencies can be installed by running
+Echonet-Dynamic and its dependencies can be installed by navigating to the cloned directory and running
 
-    pip3 install .
+    pip install .
 
 Usage
 -----
