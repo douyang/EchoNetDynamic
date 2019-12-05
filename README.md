@@ -48,7 +48,7 @@ EchoNet-Dynamic is implemented for Python 3, and depends on the following packag
 
 Echonet-Dynamic and its dependencies can be installed by navigating to the cloned directory and running
 
-    pip install .
+    pip install --user .
 
 Usage
 -----
