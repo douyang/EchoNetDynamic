@@ -8,7 +8,7 @@ EchoNet-Dynamic is a end-to-end beat-to-beat deep learning model for
 
 For more details, see the acompanying paper,
 
-> [**Interpretable AI for beat-to-beat cardiac function assessment**](https://www.medrxiv.org/content/10.1101/19012419v1)<br/>
+> [**Interpretable AI for beat-to-beat cardiac function assessment**](https://www.medrxiv.org/content/10.1101/19012419v2)<br/>
   by David Ouyang, Bryan He, Amirata Ghorbani, Curt P. Langlotz, Paul A. Heidenreich, Robert A. Harrington, David H. Liang, Euan A. Ashley, and James Y. Zou
 
 Dataset
@@ -34,7 +34,7 @@ Installation
 
 First, clone this repository and enter the directory by running:
 
-    git clone git@github.com:douyang/EchoNetDynamic.git
+    git clone https://github.com/douyang/EchoNetDynamic
     cd EchoNetDynamic
 
 EchoNet-Dynamic is implemented for Python 3, and depends on the following packages:
@@ -46,9 +46,9 @@ EchoNet-Dynamic is implemented for Python 3, and depends on the following packag
   - sklearn
   - tqdm
 
-Echonet-Dynamic and its dependencies can be installed by running
+Echonet-Dynamic and its dependencies can be installed by navigating to the cloned directory and running
 
-    pip3 install .
+    pip install --user .
 
 Usage
 -----

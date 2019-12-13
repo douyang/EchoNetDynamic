@@ -18,4 +18,4 @@ for filename in ["echonet.cfg",
 
 config = types.SimpleNamespace(
         FILENAME=FILENAME,
-        DATA_DIR=param.get("data_dir", "echonet-dynamic/"))
+        DATA_DIR=param.get("data_dir", "a4c-video-dir/"))
