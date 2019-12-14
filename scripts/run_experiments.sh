@@ -9,14 +9,6 @@ do
             batch=$((256 / frames))
             batch=$(( batch > 16 ? 16 : batch ))
 
-            logfile=output/video/${model}_${frames}_1_
-            if [ "${pretrained}" = True ]
-            then
-                logfile=${logfile}pretrained
-            else
-                logfile=${logfile}random
-            fi
-            logfile=${logfile}/log.csv
             cmd="import echonet; echonet.utils.video.run(modelname=\"${model}\", frames=${frames}, period=1, pretrained=${pretrained}, batch_size=${batch})"
             python3 -c "${cmd}"
         done
@@ -24,14 +16,7 @@ do
         do
             batch=$((256 / 64 * period))
             batch=$(( batch > 16 ? 16 : batch ))
-            logfile=output/video/${model}_$((64 / period))_${period}_
-            if [ "${pretrained}" = True ]
-            then
-                logfile=${logfile}pretrained
-            else
-                logfile=${logfile}random
-            fi
-            logfile=${logfile}/log.csv
+
             cmd="import echonet; echonet.utils.video.run(modelname=\"${model}\", frames=(64 // ${period}), period=${period}, pretrained=${pretrained}, batch_size=${batch})"
             python3 -c "${cmd}"
         done
