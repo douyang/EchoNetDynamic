@@ -58,7 +58,7 @@ The input of EchoNet-Dynamic is an apical-4-chamber view echocardiogram video of
 
 ### Setting Path to Data
 
-By default, EchoNet-Dynamic assumes that a copy of the data is saved in a folder named `echonet-dynamic/` in this directory.
+By default, EchoNet-Dynamic assumes that a copy of the data is saved in a folder named `a4c-video-dir/` in this directory.
 This path can be changed by creating a configuration file named `echonet.cfg` (an example configuration file is `example.cfg`).
 
 ### Running Code
