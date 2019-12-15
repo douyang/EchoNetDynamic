@@ -83,9 +83,21 @@ def run(num_epochs=45,
     
         for epoch in range(epoch_resume, num_epochs):
             print("Epoch #{}".format(epoch), flush=True)
-            for phase in ['train','val']:
+            for phase in ['train', 'val']:
+                start_time = time.time()
+                for i in range(torch.cuda.device_count()):
+                    torch.cuda.reset_max_memory_allocated(i)
+                    torch.cuda.reset_max_memory_cached(i)
                 loss, yhat, y = echonet.utils.video.run_epoch(model, dataloaders[phase], phase, optim, device)
-                f.write("{},{},{},{}\n".format(epoch, phase, loss, sklearn.metrics.r2_score(yhat, y)))
+                f.write("{},{},{},{},{},{},{},{}\n".format(epoch,
+                                                           phase,
+                                                           loss,
+                                                           sklearn.metrics.r2_score(yhat, y),
+                                                           time.time() - start_time,
+                                                           y.size,
+                                                           sum(torch.cuda.max_memory_allocated() for i in range(torch.cuda.device_count())),
+                                                           sum(torch.cuda.max_memory_cached() for i in range(torch.cuda.device_count())),
+                                                           batch_size))
                 f.flush()
             scheduler.step()
     

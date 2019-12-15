@@ -8,6 +8,7 @@ import torchvision
 import pathlib
 import tqdm
 import scipy.signal
+import time
 
 def run(num_epochs=50,
         modelname="deeplabv3_resnet50",
@@ -74,12 +75,27 @@ def run(num_epochs=50,
 
         for epoch in range(epoch_resume, num_epochs):
             print("Epoch #{}".format(epoch), flush=True)
-            for phase in ['train','val']:
+            for phase in ['train', 'val']:
+                start_time = time.time()
+                for i in range(torch.cuda.device_count()):
+                    torch.cuda.reset_max_memory_allocated(i)
+                    torch.cuda.reset_max_memory_cached(i)
+
                 loss, large_inter, large_union, small_inter, small_union = echonet.utils.segmentation.run_epoch(model, dataloaders[phase], phase, optim, device)
                 overall_dice = 2 * (large_inter.sum() + small_inter.sum()) / (large_union.sum() + large_inter.sum() + small_union.sum() + small_inter.sum())
                 large_dice = 2 * large_inter.sum() / (large_union.sum() + large_inter.sum())
                 small_dice = 2 * small_inter.sum() / (small_union.sum() + small_inter.sum())
-                f.write("{},{},{},{},{}\n".format(epoch, phase, loss, overall_dice, large_dice, small_dice))
+                f.write("{},{},{},{},{},{},{},{},{},{}\n".format(epoch,
+                                                                 phase,
+                                                                 loss,
+                                                                 overall_dice,
+                                                                 large_dice,
+                                                                 small_dice,
+                                                                 time.time() - start_time,
+                                                                 large_inter.size,
+                                                                 sum(torch.cuda.max_memory_allocated() for i in range(torch.cuda.device_count())),
+                                                                 sum(torch.cuda.max_memory_cached() for i in range(torch.cuda.device_count())),
+                                                                 batch_size))
                 f.flush()
 
             save = {
