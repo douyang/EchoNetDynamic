@@ -89,7 +89,7 @@ def run(num_epochs=45,
                     torch.cuda.reset_max_memory_allocated(i)
                     torch.cuda.reset_max_memory_cached(i)
                 loss, yhat, y = echonet.utils.video.run_epoch(model, dataloaders[phase], phase, optim, device)
-                f.write("{},{},{},{},{},{},{},{}\n".format(epoch,
+                f.write("{},{},{},{},{},{},{},{},{}\n".format(epoch,
                                                            phase,
                                                            loss,
                                                            sklearn.metrics.r2_score(yhat, y),

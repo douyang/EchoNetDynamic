@@ -85,7 +85,7 @@ def run(num_epochs=50,
                 overall_dice = 2 * (large_inter.sum() + small_inter.sum()) / (large_union.sum() + large_inter.sum() + small_union.sum() + small_inter.sum())
                 large_dice = 2 * large_inter.sum() / (large_union.sum() + large_inter.sum())
                 small_dice = 2 * small_inter.sum() / (small_union.sum() + small_inter.sum())
-                f.write("{},{},{},{},{},{},{},{},{},{}\n".format(epoch,
+                f.write("{},{},{},{},{},{},{},{},{},{},{}\n".format(epoch,
                                                                  phase,
                                                                  loss,
                                                                  overall_dice,
