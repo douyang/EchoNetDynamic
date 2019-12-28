@@ -39,14 +39,10 @@ class Echo(torch.utils.data.Dataset):
         self.target_transform = target_transform
         self.external_test_location = external_test_location
         
-        #print(split, self.external_test_location)
-        
         self.fnames, self.outcome = [], []
         
         if split == "external_test":
             self.fnames = sorted(os.listdir(self.external_test_location))
-            #print(self.fnames)
-            
         elif split == "clinical_test":
             self.fnames = sorted(os.listdir(self.folder / "ProcessedStrainStudyA4c"))
         else:
@@ -91,14 +87,13 @@ class Echo(torch.utils.data.Dataset):
 
     def __getitem__(self, index):
         
-        #print(self.external_test_location)
-
         if self.split == "external_test":
-            video = echonet.utils.loadvideo(os.path.join(self.external_test_location, self.fnames[index]))
+            video = os.path.join(self.external_test_location, self.fnames[index])
         elif self.split == "clinical_test":
-            video = echonet.utils.loadvideo(os.path.join(self.folder, "ProcessedStrainStudyA4c", self.fnames[index]))
+            video = os.path.join(self.folder, "ProcessedStrainStudyA4c", self.fnames[index])
         else:
-            video = echonet.utils.loadvideo(os.path.join(self.folder, "Videos", self.fnames[index]))
+            video = os.path.join(self.folder, "Videos", self.fnames[index])
+        video = echonet.utils.loadvideo(video)
 
         # Apply normalization
         assert(type(self.mean) == type(self.std))
