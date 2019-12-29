@@ -13,6 +13,7 @@ class Echo(torch.utils.data.Dataset):
                  split="train", target_type="EF",
                  mean=0., std=1.,
                  length=16, period=4,
+                 max_length=300,
                  crops=1,
                  pad=None,
                  segmentation=None,
@@ -32,6 +33,7 @@ class Echo(torch.utils.data.Dataset):
         self.mean = mean
         self.std = std
         self.length = length
+        self.max_length = max_length
         self.period = period
         self.crops = crops
         self.pad = pad
@@ -107,6 +109,8 @@ class Echo(torch.utils.data.Dataset):
             length = f // self.period
         else:
             length = self.length
+
+        length = min(length, self.max_length)
 
         if f < length * self.period:
             # Pad video with frames filled with zeros if too short
