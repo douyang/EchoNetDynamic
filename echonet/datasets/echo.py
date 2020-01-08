@@ -16,6 +16,7 @@ class Echo(torch.utils.data.Dataset):
                  max_length=300,
                  crops=1,
                  pad=None,
+                 noise=None,
                  segmentation=None,
                  target_transform=None,
                  external_test_location = None
@@ -37,6 +38,7 @@ class Echo(torch.utils.data.Dataset):
         self.period = period
         self.crops = crops
         self.pad = pad
+        self.noise = noise
         self.segmentation = segmentation
         self.target_transform = target_transform
         self.external_test_location = external_test_location
@@ -96,6 +98,16 @@ class Echo(torch.utils.data.Dataset):
         else:
             video = os.path.join(self.folder, "Videos", self.fnames[index])
         video = echonet.utils.loadvideo(video)
+
+        if self.noise is not None:
+            n = video.shape[1] * video.shape[2] * video.shape[3]
+            ind = np.random.choice(n, round(self.noise * n), replace=False)
+            f = ind % video.shape[1]
+            ind //= video.shape[1]
+            i = ind % video.shape[2]
+            ind //= video.shape[2]
+            j = ind
+            video[:, f, i, j] = 0
 
         # Apply normalization
         assert(type(self.mean) == type(self.std))
