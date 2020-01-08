@@ -13,7 +13,7 @@ class Echo(torch.utils.data.Dataset):
                  split="train", target_type="EF",
                  mean=0., std=1.,
                  length=16, period=4,
-                 max_length=300,
+                 max_length=250,
                  crops=1,
                  pad=None,
                  noise=None,
@@ -66,7 +66,7 @@ class Echo(torch.utils.data.Dataset):
                         self.outcome.append(lineSplit)
 
             self.frames = collections.defaultdict(list)
-            self.trace = collections.defaultdict(lambda: collections.defaultdict(list))
+            self.trace = collections.defaultdict(_defaultdict_of_lists)
 
             with open(self.folder / "VolumeTracings-corrected.csv") as f:
                 header = f.readline().strip().split(",")
@@ -193,3 +193,6 @@ class Echo(torch.utils.data.Dataset):
 
     def __len__(self):
         return len(self.fnames)
+
+def _defaultdict_of_lists():
+    return collections.defaultdict(list)
