@@ -13,9 +13,11 @@ import itertools
 import matplotlib
 
 def main():
-    fig_root = "fig/noise"
-    device = torch.device("cuda")
+    fig_root = os.path.join("figure", "noise")
+    video_output = os.path.join("output", "video", "r2plus1d_18_32_2_pretrained")
+    seg_output = os.path.join("output", "segmentation", "deeplabv3_resnet50_random")
 
+    device = torch.device("cuda")
 
     NOISE = [0, 0.1, 0.2, 0.3, 0.4, 0.5]
     filename = os.path.join(fig_root, "data.pkl")
@@ -23,27 +25,28 @@ def main():
         with open(filename, "rb") as f:
             Y, YHAT, INTER, UNION = pickle.load(f)
     except:
-        # Video model
+        os.makedirs(fig_root, exist_ok=True)
+
+        # Load trained video model
         model_v = torchvision.models.video.r2plus1d_18()
         model_v.fc = torch.nn.Linear(model_v.fc.in_features, 1)
         if device.type == "cuda":
             model_v = torch.nn.DataParallel(model_v)
         model_v.to(device)
 
-        output = "output/video/r2plus1d_18_32_2_pretrained/"
-        checkpoint = torch.load(os.path.join(output, "checkpoint.pt"))
+        checkpoint = torch.load(os.path.join(video_output, "checkpoint.pt"))
         model_v.load_state_dict(checkpoint['state_dict'])
 
-        # Segmentation model
+        # Load trained segmentation model
         model_s = torchvision.models.segmentation.deeplabv3_resnet50(aux_loss=False)
         model_s.classifier[-1] = torch.nn.Conv2d(model_s.classifier[-1].in_channels, 1, kernel_size=model_s.classifier[-1].kernel_size)
         if device.type == "cuda":
             model_s = torch.nn.DataParallel(model_s)
         model_s.to(device)
 
-        output = "output/segmentation/deeplabv3_resnet50_random/"
-        checkpoint = torch.load(os.path.join(output, "checkpoint.pt"))
+        checkpoint = torch.load(os.path.join(seg_output, "checkpoint.pt"))
         model_s.load_state_dict(checkpoint['state_dict'])
+
         dice = []
         mse = []
         r2 = []
@@ -103,26 +106,25 @@ def main():
             pickle.dump((Y, YHAT, INTER, UNION), f)
 
     echonet.utils.latexify()
-    os.makedirs(fig_root, exist_ok=True)
 
     NOISE = list(map(lambda x: round(100 * x), NOISE))
     fig, ax = plt.subplots(3, figsize=(6.5, 4.5))
 
-    r2 = list(itertools.starmap(sklearn.metrics.r2_score, zip(Y, YHAT)))
-    ax[0].plot(NOISE, r2, color="k", marker=".", linewidth=1)
+    r2 = [sklearn.metrics.r2_score(y, yhat) for (y, yhat) in zip(Y, YHAT)]
+    ax[0].plot(NOISE, r2, color="k", linewidth=1, marker=".")
     ax[0].set_xticks([])
     ax[0].set_ylabel("R$^2$")
     l, h = min(r2), max(r2)
     l, h = l - 0.1 * (h - l), h + 0.1 * (h - l)
-    ax[0].axis([min(NOISE) - 5, max(NOISE) + 5, 0.5, 1])
+    ax[0].axis([min(NOISE) - 5, max(NOISE) + 5, 0, 1])
 
-    dice = list(itertools.starmap(lambda inter, union: 2 * sum(inter) / sum(union + inter), zip(INTER, UNION)))
-    ax[1].plot(NOISE, dice, color="k", marker=".", linewidth=1)
+    dice = [echonet.utils.dice_similarity_coefficient(inter, union) for (inter, union) in zip(INTER, UNION)]
+    ax[1].plot(NOISE, dice, color="k", linewidth=1, marker=".")
     ax[1].set_xlabel("Pixels Removed (%)")
     ax[1].set_ylabel("DSC")
     l, h = min(dice), max(dice)
     l, h = l - 0.1 * (h - l), h + 0.1 * (h - l)
-    ax[1].axis([min(NOISE) - 5, max(NOISE) + 5, 0.5, 1])
+    ax[1].axis([min(NOISE) - 5, max(NOISE) + 5, 0, 1])
 
     for noise in NOISE:
         image = matplotlib.image.imread(os.path.join(fig_root, "noise_{}.tif".format(noise)))
