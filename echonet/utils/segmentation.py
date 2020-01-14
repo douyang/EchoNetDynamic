@@ -128,17 +128,9 @@ def run(num_epochs=50,
                 for (filename, overall, large, small) in zip(dataset.fnames, overall_dice, large_dice, small_dice):
                     g.write("{},{},{},{}\n".format(filename, overall, large, small))
 
-            def bootstrap(inter, union, samples=10000):
-                bootstraps = []
-                for i in range(samples):
-                    ind = np.random.choice(len(inter), len(inter))
-                    bootstraps.append(2 * inter[ind].sum() / (union[ind].sum() + inter[ind].sum()))
-                bootstraps = sorted(bootstraps)
-
-                return 2 * inter.sum() / (union.sum() + inter.sum()), bootstraps[round(0.05 * len(bootstraps))], bootstraps[round(0.95 * len(bootstraps))]
-            f.write("{} dice (overall): {:.4f} ({:.4f} - {:.4f})\n".format(split, *bootstrap(np.concatenate((large_inter, small_inter)), np.concatenate((large_union, small_union)))))
-            f.write("{} dice (large):   {:.4f} ({:.4f} - {:.4f})\n".format(split, *bootstrap(large_inter, large_union)))
-            f.write("{} dice (small):   {:.4f} ({:.4f} - {:.4f})\n".format(split, *bootstrap(small_inter, small_union)))
+            f.write("{} dice (overall): {:.4f} ({:.4f} - {:.4f})\n".format(split, *echonet.utils.bootstrap(np.concatenate((large_inter, small_inter)), np.concatenate((large_union, small_union)), echonet.utils.dice_similarity_coefficient)))
+            f.write("{} dice (large):   {:.4f} ({:.4f} - {:.4f})\n".format(split, *echonet.utils.bootstrap(large_inter, large_union, echonet.utils.dice_similarity_coefficient)))
+            f.write("{} dice (small):   {:.4f} ({:.4f} - {:.4f})\n".format(split, *echonet.utils.bootstrap(small_inter, small_union, echonet.utils.dice_similarity_coefficient)))
             f.flush()
             echonet.utils.latexify()
             fig = plt.figure(figsize=(4, 4))

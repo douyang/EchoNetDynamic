@@ -54,7 +54,7 @@ def get_mean_and_std(dataset, samples=10):
     n = 0
     mean = 0.
     std = 0.
-    for (i, (x, t)) in enumerate(tqdm.tqdm(dataloader)):
+    for (i, (x, *_)) in enumerate(tqdm.tqdm(dataloader)):
         x = x.transpose(0, 1).contiguous().view(3, -1)
         n += x.shape[1]
         mean += torch.sum(x, dim=1).numpy()
@@ -68,14 +68,17 @@ def get_mean_and_std(dataset, samples=10):
     return mean, std
 
 
-def bootstrap(y, yhat, func, samples=10000):
+def bootstrap(a, b, func, samples=10000):
+    a = np.array(a)
+    b = np.array(b)
+
     bootstraps = []
     for i in range(samples):
-        ind = np.random.choice(len(y), len(y))
-        bootstraps.append(func(yhat[ind], y[ind]))
+        ind = np.random.choice(len(a), len(a))
+        bootstraps.append(func(a[ind], b[ind]))
     bootstraps = sorted(bootstraps)
 
-    return func(yhat, y), bootstraps[round(0.05 * len(bootstraps))], bootstraps[round(0.95 * len(bootstraps))]
+    return func(a, b), bootstraps[round(0.05 * len(bootstraps))], bootstraps[round(0.95 * len(bootstraps))]
 
 
 # Based on https://nipunbatra.github.io/blog/2014/latexify.html
@@ -101,3 +104,5 @@ def adjust_learning_rate(optimizer, scale):
     for param_group in optimizer.param_groups:
         param_group['lr'] = lr
 
+def dice_similarity_coefficient(inter, union):
+    return 2 * sum(inter) / (sum(union) + sum(inter))
