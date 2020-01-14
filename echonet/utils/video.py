@@ -24,6 +24,7 @@ def run(num_epochs=45,
         seed=0,
         num_workers=5,
         batch_size=20,
+        lr_step_period=None,
         run_test=False,
         run_extra_tests=False):
 
@@ -45,7 +46,10 @@ def run(num_epochs=45,
         model = torch.nn.DataParallel(model)
     model.to(device)
     optim = torch.optim.SGD(model.parameters(), lr=1e-4, momentum=0.9, weight_decay=1e-4) # Standard optimizer
-    scheduler = torch.optim.lr_scheduler.StepLR(optim, 15)
+    if lr_step_period is None:
+        lr_step_period = math.inf
+    scheduler = torch.optim.lr_scheduler.StepLR(optim, lr_step_period)
+
 
     mean, std = echonet.utils.get_mean_and_std(echonet.datasets.Echo(split="train"))
 

@@ -19,6 +19,7 @@ def run(num_epochs=50,
         num_workers=5,
         batch_size=20,
         seed=0,
+        lr_step_period=None,
         save_segmentation=False):
 
     ### Seed RNGs ###
@@ -42,6 +43,9 @@ def run(num_epochs=50,
         model = torch.nn.DataParallel(model)
     model.to(device)
     optim = torch.optim.SGD(model.parameters(), lr=1e-5, momentum=0.9) # Standard optimizer
+    if lr_step_period is None:
+        lr_step_period = math.inf
+    scheduler = torch.optim.lr_scheduler.StepLR(optim, lr_step_period)
 
     mean, std = echonet.utils.get_mean_and_std(echonet.datasets.Echo(split="train"))
     kwargs = {"target_type": tasks,
@@ -67,6 +71,7 @@ def run(num_epochs=50,
             checkpoint = torch.load(os.path.join(output, "checkpoint.pt"))
             model.load_state_dict(checkpoint['state_dict'])
             optim.load_state_dict(checkpoint['opt_dict'])
+            scheduler.load_state_dict(checkpoint['scheduler_dict'])
             epoch_resume = checkpoint["epoch"] + 1
             bestLoss = checkpoint["best_loss"]
             f.write("Resuming from epoch {}\n".format(epoch_resume))
@@ -97,6 +102,7 @@ def run(num_epochs=50,
                                                                  sum(torch.cuda.max_memory_cached() for i in range(torch.cuda.device_count())),
                                                                  batch_size))
                 f.flush()
+            scheduler.step()
 
             save = {
                 'epoch': epoch,
@@ -104,6 +110,7 @@ def run(num_epochs=50,
                 'best_loss': bestLoss,
                 'loss': loss,
                 'opt_dict': optim.state_dict(),
+                'scheduler_dict': scheduler.state_dict(),
                 }
             torch.save(save, os.path.join(output, "checkpoint.pt"))
             if loss < bestLoss:
@@ -132,13 +139,14 @@ def run(num_epochs=50,
             f.write("{} dice (large):   {:.4f} ({:.4f} - {:.4f})\n".format(split, *echonet.utils.bootstrap(large_inter, large_union, echonet.utils.dice_similarity_coefficient)))
             f.write("{} dice (small):   {:.4f} ({:.4f} - {:.4f})\n".format(split, *echonet.utils.bootstrap(small_inter, small_union, echonet.utils.dice_similarity_coefficient)))
             f.flush()
+
             echonet.utils.latexify()
             fig = plt.figure(figsize=(4, 4))
             plt.scatter(small_dice, large_dice, color="k", edgecolor=None, s=1)
             plt.plot([0, 1], [0, 1], color="k", linewidth=1)
             plt.axis([0, 1, 0, 1])
-            plt.xlabel("Systolic Dice")
-            plt.ylabel("Diastolic Dice")
+            plt.xlabel("Systolic DSC")
+            plt.ylabel("Diastolic DSC")
             plt.tight_layout()
             plt.savefig(os.path.join(output, "{}_dice.pdf".format(split)))
             plt.savefig(os.path.join(output, "{}_dice.png".format(split)))
