@@ -68,7 +68,7 @@ class Echo(torch.utils.data.Dataset):
             self.frames = collections.defaultdict(list)
             self.trace = collections.defaultdict(_defaultdict_of_lists)
 
-            with open(self.folder / "VolumeTracings-corrected.csv") as f:
+            with open(self.folder / "VolumeTracings.csv") as f:
                 header = f.readline().strip().split(",")
 
                 for (i, line) in enumerate(f):
