@@ -50,7 +50,7 @@ class Echo(torch.utils.data.Dataset):
         elif split == "clinical_test":
             self.fnames = sorted(os.listdir(self.folder / "ProcessedStrainStudyA4c"))
         else:
-            with open(self.folder / "File List.csv") as f:
+            with open(self.folder / "FileList.csv") as f:
                 self.header = f.readline().strip().split(",")
                 filenameIndex = self.header.index("FileName")
                 splitIndex = self.header.index("Split")
