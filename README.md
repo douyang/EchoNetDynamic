@@ -1,3 +1,6 @@
+Note: This repository has been moved. Please find the most up-to-date version at https://github.com/echonet/dynamic
+
+
 EchoNet-Dynamic:<br/>Interpretable AI for beat-to-beat cardiac function assessment
 ------------------------------------------------------------------------------
 
@@ -14,7 +17,7 @@ For more details, see the acompanying paper,
 Dataset
 -------
 We share a deidentified set of 10,000 echocardiogram images which were used for training EchoNet-Dynamic.
-Preprocessing of these images, including deidentification and conversion from DICOM format to AVI format videos, were performed with OpenCV and pydicom. Additional information is at https://douyang.github.io/EchoNetDynamic/. These deidentified images are shared with a non-commerical data use agreement.
+Preprocessing of these images, including deidentification and conversion from DICOM format to AVI format videos, were performed with OpenCV and pydicom. Additional information is at https://echonet.github.io/dynamic/. These deidentified images are shared with a non-commerical data use agreement.
 
 Examples
 --------
@@ -34,7 +37,7 @@ Installation
 
 First, clone this repository and enter the directory by running:
 
-    git clone https://github.com/douyang/EchoNetDynamic
+    git clone https://github.com/echonet/dynamic
     cd EchoNetDynamic
 
 EchoNet-Dynamic is implemented for Python 3, and depends on the following packages:
